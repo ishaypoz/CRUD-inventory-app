@@ -1,0 +1,19 @@
+<div class="card shadow mb-3 my-1">
+  <form class="form" (ngSubmit)="onSearch(id)">
+    <div class="card-header">Search Item ID</div>
+    <div class="card-body">
+      <input
+        type="number"
+        class="form-control"
+        id="id"
+        name="id"
+        [(ngModel)]="id"
+      />
+    </div>
+    <div class="card-footer text-center">
+      <button class="btn btn-primary my-2" type="submit" value="Submit">
+        Search
+      </button>
+    </div>
+  </form>
+</div>

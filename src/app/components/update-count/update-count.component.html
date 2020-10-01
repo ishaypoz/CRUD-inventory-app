@@ -1,0 +1,50 @@
+<div class="card shadow mb-3 my-1">
+  <form (ngSubmit)="changeCount()">
+    <div class="card-header">Update Balance</div>
+    <div class="card-body">
+      <label for="id">Item ID</label>
+      <input
+        type="number"
+        class="form-control"
+        name="id"
+        id="id"
+        [(ngModel)]="data.id"
+      />
+      <label for="amount">Amount</label>
+      <input
+        type="number"
+        class="form-control"
+        name="amount"
+        id="amount"
+        [(ngModel)]="data.amount"
+      />
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          [(ngModel)]="data.option"
+          id="withdraw"
+          name="withdraw"
+          value="withdraw"
+        />
+        <label class="form-check-label" for="withdraw"> Withdraw </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          [(ngModel)]="data.option"
+          id="deposit"
+          name="deposit"
+          value="deposit"
+        />
+        <label class="form-check-label" for="deposit"> Deposit </label>
+      </div>
+    </div>
+    <div class="card-footer text-center">
+      <button type="submit" value="Submit" class="btn btn-primary my-2">
+        Submit
+      </button>
+    </div>
+  </form>
+</div>

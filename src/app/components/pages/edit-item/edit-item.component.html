@@ -1,0 +1,45 @@
+<div class="row justify-content-center">
+  <div class="col-lg-6 col-md-8 col-10">
+    <form (ngSubmit)="onUpdate()">
+      <div class="card shadow my-4">
+        <div class="card-header">Edit Item</div>
+        <div class="card-body">
+          <div class="form-group">
+            <label for="name">Item Name</label>
+            <input
+              type="text"
+              class="form-control"
+              name="name"
+              [(ngModel)]="currentItem.name"
+              id="name"
+            />
+          </div>
+          <div class="form-group">
+            <label for="description">Item Description</label>
+            <textarea
+              class="form-control"
+              name="description"
+              [(ngModel)]="currentItem.description"
+              id="description"
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <label for="count">Item Count</label>
+            <input
+              type="number"
+              class="form-control"
+              name="count"
+              [(ngModel)]="currentItem.count"
+              id="count"
+            />
+          </div>
+        </div>
+        <div class="card-footer text-center">
+          <button type="submit" value="Submit" class="btn btn-primary">
+            Submit
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
