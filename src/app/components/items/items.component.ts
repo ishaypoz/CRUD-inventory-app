@@ -25,52 +25,32 @@ export class ItemsComponent implements OnInit {
     );
   }
   deleteItem(item: Item) {
-    //Delete from Server
-    this.itemService.deleteItem(item).subscribe();
-    //Delete from UI
+    this.itemService.deleteItem(item).subscribe((respone) => {
+      console.log(respone);
+    });
     this.items = this.items.filter((i) => i.id !== item.id);
   }
   searchItem(id: number) {
-    this.itemService.getItem(id).subscribe(
-      (item) => {
-        this.items = [item];
-      },
-      (err) => {
-        this.items = [];
-      }
-    );
+    this.itemService.getItem(id).subscribe((item) => {
+      this.items = [item];
+    });
   }
   updateCount(data: any) {
-    if (this.items[0].id == data.id) {
-      [this.search] = this.items;
-    } else {
-      this.initialList();
-      this.search = this.items.find((i) => i.id == data.id);
-    }
-    if (this.search) {
-      switch (data.option) {
-        case 'withdraw':
-          if (this.search.count - data.amount >= 0) {
-            this.search.count -= data.amount;
-            this.itemService.editItem(this.search).subscribe(
-              () => console.log('Withdraw'),
-              (err) => console.log(err)
-            );
-          }
-          this.searchItem(this.search.id);
-          break;
-        case 'deposit':
-          this.search.count += parseInt(data.amount);
-          this.items = [this.search];
-          this.itemService.editItem(this.search).subscribe(
-            () => console.log('Deposit'),
-            (err) => console.log(err)
-          );
-          this.searchItem(this.search.id);
-          break;
-        default:
-          break;
-      }
+    switch (data.option) {
+      case 'withdraw':
+        this.itemService.withdrawItem(data).subscribe(
+          () => this.searchItem(data.id),
+          (err) => console.log(err)
+        );
+        break;
+      case 'deposit':
+        this.itemService.depositItem(data).subscribe(
+          () => this.searchItem(data.id),
+          (err) => console.log(err)
+        );
+        break;
+      default:
+        break;
     }
   }
 }

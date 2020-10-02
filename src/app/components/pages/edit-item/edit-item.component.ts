@@ -42,7 +42,7 @@ export class EditItemComponent implements OnInit {
       count: this.currentItem.count,
     };
     this.itemService.editItem(this.currentItem).subscribe(
-      (response) => {
+      () => {
         this.router.navigate(['/']);
       },
       (err) => console.log(err)

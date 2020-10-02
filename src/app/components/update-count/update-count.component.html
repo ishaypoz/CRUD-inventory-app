@@ -1,6 +1,6 @@
 <div class="card shadow mb-3 my-1">
   <form (ngSubmit)="changeCount()">
-    <div class="card-header">Update Balance</div>
+    <div class="card-header">Update Balance ID</div>
     <div class="card-body">
       <label for="id">Item ID</label>
       <input
@@ -9,6 +9,7 @@
         name="id"
         id="id"
         [(ngModel)]="data.id"
+        min="0"
       />
       <label for="amount">Amount</label>
       <input
@@ -16,6 +17,7 @@
         class="form-control"
         name="amount"
         id="amount"
+        min="0"
         [(ngModel)]="data.amount"
       />
       <div class="form-check">

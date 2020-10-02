@@ -22,7 +22,7 @@ export class AddItemComponent implements OnInit {
       count: this.count,
     };
     this.itemService.addItem(this.item).subscribe(
-      (response) => {
+      () => {
         this.router.navigate(['/']);
       },
       (err) => console.log(err)

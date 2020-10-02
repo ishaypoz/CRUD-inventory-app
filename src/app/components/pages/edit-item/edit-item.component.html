@@ -31,8 +31,16 @@
               name="count"
               [(ngModel)]="currentItem.count"
               id="count"
+              min="0"
             />
           </div>
+        </div>
+        <div class="text-right mr-3">
+          <p>
+            <sub
+              ><i>ID: {{ currentItem.id }}</i>
+            </sub>
+          </p>
         </div>
         <div class="card-footer text-center">
           <button type="submit" value="Submit" class="btn btn-primary">

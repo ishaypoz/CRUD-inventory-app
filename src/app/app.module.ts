@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { SearchComponent } from './components/search/search.component';
 import { EditItemComponent } from './components/pages/edit-item/edit-item.component';
 import { UpdateCountComponent } from './components/update-count/update-count.component';
+
 @NgModule({
   declarations: [
     AppComponent,
