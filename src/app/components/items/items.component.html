@@ -5,6 +5,12 @@
       <app-update-count (updateCount)="updateCount($event)"></app-update-count>
     </div>
     <div class="col col-md-7 col-10">
+      <div *ngIf="info" class="alert alert-success" role="alert">
+        {{ info }}
+      </div>
+      <div *ngIf="error" class="alert alert-danger my-1">
+        {{ error }}
+      </div>
       <app-item
         *ngFor="let item of items"
         [item]="item"
