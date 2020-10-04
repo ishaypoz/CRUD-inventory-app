@@ -3,7 +3,8 @@ const winston = require('winston');
 const logConfiguration = {
 	transports: [
 		new winston.transports.File({
-			filename: './logs.log',
+			filename: './info.log',
+			level: 'info',
 			format: winston.format.combine(winston.format.timestamp(), winston.format.json())
 		})
 	]
