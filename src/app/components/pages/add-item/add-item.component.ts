@@ -12,6 +12,7 @@ export class AddItemComponent implements OnInit {
   name: string;
   description: string;
   count: number;
+  error: string = '';
   constructor(private router: Router, private itemService: ItemService) {}
 
   ngOnInit(): void {}
@@ -25,7 +26,9 @@ export class AddItemComponent implements OnInit {
       () => {
         this.router.navigate(['/']);
       },
-      (err) => console.log(err)
+      (err) => {
+        this.error = err.error;
+      }
     );
   }
 }
