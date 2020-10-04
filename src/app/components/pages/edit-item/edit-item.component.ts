@@ -15,6 +15,7 @@ export class EditItemComponent implements OnInit {
     description: '',
     count: null,
   };
+  error: string = '';
   constructor(
     private itemService: ItemService,
     private route: ActivatedRoute,
@@ -29,8 +30,8 @@ export class EditItemComponent implements OnInit {
       (data) => {
         this.currentItem = data;
       },
-      (error) => {
-        console.log(error);
+      () => {
+        this.router.navigate(['/']);
       }
     );
   }
@@ -45,7 +46,9 @@ export class EditItemComponent implements OnInit {
       () => {
         this.router.navigate(['/']);
       },
-      (err) => console.log(err)
+      (err) => {
+        this.error = err.error;
+      }
     );
   }
 }
