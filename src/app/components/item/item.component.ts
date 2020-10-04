@@ -15,6 +15,7 @@ export class ItemComponent implements OnInit {
     amount: null,
     id: null,
   };
+  error: string = '';
   constructor(private itemService: ItemService) {}
 
   ngOnInit(): void {}
@@ -26,14 +27,24 @@ export class ItemComponent implements OnInit {
     switch (this.data.option) {
       case 'withdraw':
         this.itemService.withdrawItem(this.data).subscribe(
-          () => (this.item.count -= this.data.amount),
-          (err) => console.log(err)
+          () => {
+            this.error = '';
+            this.item.count -= this.data.amount;
+          },
+          (err) => {
+            this.error = err.error;
+          }
         );
         break;
       case 'deposit':
         this.itemService.depositItem(this.data).subscribe(
-          () => (this.item.count += this.data.amount),
-          (err) => console.log(err)
+          () => {
+            this.error = '';
+            this.item.count += this.data.amount;
+          },
+          (err) => {
+            this.error = err.error;
+          }
         );
         break;
       default:
