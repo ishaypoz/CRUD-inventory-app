@@ -89,7 +89,7 @@ exports.withdrawItem = function (req, res) {
 		return res.status(406).json('Most Be Positive Integer');
 	} else {
 		if (items[index].count - req.body.withdraw < 0) {
-			return res.status(406).json('Out of Quntity');
+			return res.status(406).json('Out of Quantity');
 		} else {
 			items[index] = { ...items[index], count: items[index].count - req.body.withdraw };
 			return res.status(200).json('Updated');
